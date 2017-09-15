@@ -28,8 +28,8 @@ while ($donnees = $req->fetch())
 {
 
   ?>
-  <div class="card container">
-    <h1> <?php echo $donnees['titre'] ?></h1>
+  <div class="news">
+    <h3> <?php echo $donnees['titre'] ?> <?php echo $donnees['date_creation'] ?></h3>
     <p><?php echo $donnees['contenu'] ?></p>
     <a href="commentaire.php?identifiant=<?php echo $donnees['id'] ?>">commentaires</a>
   </div>
