@@ -6,8 +6,6 @@
     <title>Mon Blog</title>
   </head>
   <body>
-<h1>Mon super Blog !</h1>
-<p>Derniers billets du blog :</p>
 
 <?php
 
@@ -22,7 +20,10 @@ die('Erreur : ' . $e->getMessage());
 
 
 $req = $bdd->query('SELECT * FROM billets');
-
+?>
+<h1>Mon super Blog !</h1>
+<p>Derniers billets du blog :</p>
+<?php
 while ($donnees = $req->fetch())
 {
 
@@ -30,7 +31,7 @@ while ($donnees = $req->fetch())
   <div class="card container">
     <h1> <?php echo $donnees['titre'] ?></h1>
     <p><?php echo $donnees['contenu'] ?></p>
-    <a href="commentaire.php">commentaires</a>
+    <a href="commentaire.php?identifiant=<?php echo $donnees['id'] ?>">commentaires</a>
   </div>
   <?php
 }
